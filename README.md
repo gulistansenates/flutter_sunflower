@@ -23,14 +23,18 @@ For help getting started with Flutter, view our online
 ```markdown
 flutter pub get
 ```
+
 #### Run the App
+
 ```markdown
 flutter run
 ```
+
 ####Run Tests
 ```markdown
 flutter test
 ```
+
 ### 🧪 Features
 - Demo Navigation: A list of demos shown on the home screen that navigate to different screens.
 
@@ -50,8 +54,7 @@ flutter test
 - Corrected test definitions and widget build contexts
 
 ## 📸 Screenshot
-
-![Screen](assets/screenshot/sc.png)
+![Screenshot 1](assets/screenshot/sc.png)
 
 ## 🎥 Demo Gifs
 
