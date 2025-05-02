@@ -11,7 +11,7 @@ For help getting started with Flutter, view our online
 ---
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
 ### Prerequisites
 
@@ -55,13 +55,12 @@ flutter test
 
 ## 📸 Screenshot
 
-![Screenshot 1](assets/sc.png)
+![Screenshot](assets/sc.png)
 
-## 🎥 Demo Gifs
+## 🎥 Demo
 
-![Demo1](assets/1.gif)
-
-![Demo2](assets/2.gif)
+![Demo 1](assets/1.gif)
+![Demo 2](assets/2.gif)
 
 
 
