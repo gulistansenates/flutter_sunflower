@@ -59,8 +59,8 @@ flutter test
 
 ## 🎥 Demo
 
-![Demo 1](assets/1.gif)
-![Demo 2](assets/2.gif)
+![Demo 1](assets/1_optimized.gif)
+![Demo 2](assets/2_optimized.gif)
 
 
 
