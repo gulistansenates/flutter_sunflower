@@ -54,7 +54,7 @@ flutter test
 - Corrected test definitions and widget build contexts
 
 ## 📸 Screenshot
-![Screenshot 1](assets/screenshot/sc.png)
+![Screenshot 1](assets/sc.png)
 
 ## 🎥 Demo Gifs
 
