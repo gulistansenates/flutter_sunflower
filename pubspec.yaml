@@ -1,5 +1,14 @@
 name: flutter_sunflower
 description: A Flutter version of Sunflower.
-dependencies:
-  flutter:
+
+environment:
+  sdk: '>=3.7.0 <4.0.0'
+
+dev_dependencies:
+  flutter_test:
     sdk: flutter
+
+flutter:
+  assets:
+    - assets/sc.png
+    

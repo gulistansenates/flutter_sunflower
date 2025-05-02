@@ -1,94 +1,60 @@
-import 'dart:math' as math;
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
-
-final double maxSliderValue = 1000.0;
+import 'sunflower_demo.dart';
+import 'strober_demo.dart';
+import 'debugger_demo.dart';
 
 void main() {
-  runApp(new MaterialApp(
-      title: "Flutter Sunflower",
-      routes: {Navigator.defaultRouteName: (_) => new SunflowerDemo()}));
+  runApp(DemoHubApp());
 }
 
-class SunflowerDemo extends StatefulWidget {
-  @override
-  SunflowerState createState() => new SunflowerState();
-}
-
-class SunflowerState extends State<SunflowerDemo> {
-  double _value = maxSliderValue * 2 / 3;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Sunflower"),
-        actions: <Widget>[
-          new Slider(
-            min: 0.0,
-            value: _value,
-            max: maxSliderValue,
-            activeColor: Theme.of(context).canvasColor,
-            onChanged: (double value) {
-              setState(() {
-                print('value: ${value.toStringAsFixed(2)}');
-                _value = value;
-              });
-            },
-          )
-        ],
-      ),
-      body: new Container(
-        child: new CustomPaint(
-          painter: new SunflowerPainter(
-            color: Colors.orange[500],
-            seeds: _value,
-          ),
-        ),
-        constraints: new BoxConstraints.expand(),
-        padding: const EdgeInsets.all(16.0),
-      ),
+    return MaterialApp(home: DebuggerDemo());
+  }
+}
+
+class DemoHubApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Hub',
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      home: DemoHomePage(),
     );
   }
 }
 
-class SunflowerPainter extends CustomPainter {
-  static final double phi = (math.sqrt(5) + 1) / 2;
-
-  SunflowerPainter({this.color, this.seeds});
-
-  final Color color;
-  final double seeds;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    double maxDimension = math.min(size.width, size.height);
-    double scaleFactor = (maxDimension / 2.0) / math.sqrt(maxSliderValue);
-    double seedRadius = scaleFactor * 0.6;
-
-    double xCenter = size.width / 2;
-    double yCenter = size.height / 2;
-    double tauPhiRatio = (math.PI * 2) / phi;
-
-    Paint paint = new Paint()
-      ..color = color
-      ..style = ui.PaintingStyle.fill;
-
-    for (int i = 0; i < seeds; i++) {
-      double theta = i * tauPhiRatio;
-      double r = math.sqrt(i) * scaleFactor;
-
-      canvas.drawCircle(
-          new Point(
-              xCenter + r * math.cos(theta), yCenter - r * math.sin(theta)),
-          seedRadius,
-          paint);
-    }
-  }
+class DemoHomePage extends StatelessWidget {
+  final demos = [
+    {'title': 'Sunflower', 'widget': SunflowerDemo()},
+    {'title': 'Strober', 'widget': StroberDemo()},
+    {'title': 'Debugger UI', 'widget': DebuggerDemo()},
+  ];
 
   @override
-  bool shouldRepaint(SunflowerPainter oldPainter) {
-    return oldPainter.color != color || oldPainter.seeds != seeds;
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Flutter Hub')),
+      body: ListView.builder(
+        itemCount: demos.length,
+        itemBuilder: (context, index) {
+          final demo = demos[index];
+          return ListTile(
+            title: Text(demo['title'] as String),
+
+            trailing: Icon(Icons.arrow_forward),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => demo['widget'] as Widget),
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 }
