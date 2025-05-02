@@ -54,20 +54,20 @@ flutter test
 - Corrected test definitions and widget build contexts
 
 ## 📸 Screenshot
+
 ![Screenshot 1](assets/sc.png)
 
 ## 🎥 Demo Gifs
 
-![Demo](assets/gif/1.gif)
+![Demo1](assets/1.gif)
 
-![Demo](assets/gif/2.gif)
+![Demo2](assets/2.gif)
 
 
 
 ###  🙌 Author
 - This project was built as a practice/demo app. You’re welcome to contribute, fork, or build on top of it.
 
-.
 
 ## License
 
